@@ -10,7 +10,7 @@ cd /usr/share/nginx/html
 unzip /tmp/frontend.zip
 
 echo -e "/e[36m copy frontend configuration file /e[0m"
-cp /home/centos/frontend.service /etc/nginx/default.d/roboshop.conf
+cp /home/centos/roboshop-scripts/frontend.service /etc/nginx/default.d/roboshop.conf
 
 echo -e "/e[36m Start frontend service /e[0m"
 systemctl enable nginx
