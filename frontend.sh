@@ -1,4 +1,4 @@
-component=frontned
+component=frontend
 color="\e[36m"
 nocolor="\e[0m"
 
@@ -15,7 +15,7 @@ cd /usr/share/nginx/html
 unzip /tmp/${component}.zip
 
 echo -e "${color} copy ${component} configuration file ${nocolor}"
-cp /home/centos/roboshop-scripts/${component}.service /etc/nginx/default.d/roboshop.conf
+cp -r /home/centos/roboshop-scripts/${component}.service /etc/nginx/default.d/roboshop.conf
 
 echo -e "${color} Starting ${component} service ${nocolor}"
 systemctl enable nginx
