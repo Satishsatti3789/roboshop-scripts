@@ -9,7 +9,7 @@ sudo rm -rf /usr/share/nginx/html/* &>>${log_file}
 
 echo -e "${color} Download Application Content ${nocolor}"
 curl -o /tmp/frontend.zip https://roboshop-artifacts.s3.amazonaws.com/frontend.zip &>>${log_file}
-sudo cd /usr/share/nginx/html &>>${log_file}
+cd /usr/share/nginx/html &>>${log_file}
 sudo unzip -o /tmp/frontend.zip &>>${log_file}
 
 echo -e "${color} copy ${component} configuration file ${nocolor}"
