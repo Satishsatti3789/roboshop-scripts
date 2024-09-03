@@ -1,20 +1,22 @@
 source common.sh
-component=frontend
 
-echo -e "${color} Install nginx ${nocolor}"
-sudo yum install nginx -y &>>${log_file}
+echo -e "${color} Installing Nginx Server ${nocolor}"
+yum install nginx -y &>>/tmp/roboshop.log
 
-echo -e "${color} Removing default content ${nocolor}"
-sudo rm -rf /usr/share/nginx/html/* &>>${log_file}
+echo -e "${color} Removing Old App content ${nocolor}"
+rm -rf /usr/share/nginx/html/* &>>/tmp/roboshop.log
 
-echo -e "${color} Download Application Content ${nocolor}"
-curl -o /tmp/${component}.zip https://roboshop-artifacts.s3.amazonaws.com/${component}.zip &>>${log_file}
-sudo cd /usr/share/nginx/html &>>${log_file}
-sudo unzip -o /tmp/${component}.zip &>>${log_file}
+echo -e "${color} Downloading Frontend Content ${nocolor}"
+curl -o /tmp/frontend.zip https://roboshop-artifacts.s3.amazonaws.com/frontend.zip &>>/tmp/roboshop.log
 
-echo -e "${color} copy ${component} configuration file ${nocolor}"
-sudo cp -r /home/centos/roboshop-scripts/${component}.service /etc/nginx/default.d/roboshop.conf &>>${log_file}
+echo -e "${color} Extract Frontend Content ${nocolor}"
+cd /usr/share/nginx/html
+unzip -o /tmp/frontend.zip &>>/tmp/roboshop.log
 
-echo -e "${color} Starting ${component} service ${nocolor}"
-sudo systemctl enable nginx &>>${log_file}
-sudo systemctl restart nginx &>>${log_file}
+
+echo -e "${color} Update Frontend Configuration ${nocolor}"
+cp /home/centos/roboshop-shell/roboshop.conf /etc/nginx/default.d/roboshop.conf &>>/tmp/roboshop.log
+
+echo -e "${color} Starting Nginx Server ${nocolor}"
+systemctl enable nginx &>>/tmp/roboshop.log
+systemctl restart nginx &>>/tmp/roboshop.log
