@@ -4,7 +4,7 @@ nocolor="\e[0m"
 
 
 echo -e "${color} Install nginx ${nocolor}"
-yum install nginx -y
+sudo yum install nginx -y
 
 echo -e "${color} Removing default content ${nocolor}"
 rm -rf /usr/share/nginx/html/*
