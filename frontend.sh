@@ -18,5 +18,5 @@ echo -e "${color} Update Frontend Configuration ${nocolor}"
 cp /home/centos/roboshop-shell/roboshop.conf /etc/nginx/default.d/roboshop.conf &>>/tmp/roboshop.log
 
 echo -e "${color} Starting Nginx Server ${nocolor}"
-systemctl enable nginx &>>/tmp/roboshop.log
-systemctl restart nginx &>>/tmp/roboshop.log
+sudo systemctl enable nginx &>>/tmp/roboshop.log
+sudo systemctl restart nginx &>>/tmp/roboshop.log
