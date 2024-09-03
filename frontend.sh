@@ -17,4 +17,4 @@ sudo cp -r /home/centos/roboshop-scripts/${component}.service /etc/nginx/default
 
 echo -e "${color} Starting ${component} service ${nocolor}"
 sudo systemctl enable nginx &>>${log_file}
-sudo systemctl start nginx &>>${log_file}
+sudo systemctl restart nginx &>>${log_file}
