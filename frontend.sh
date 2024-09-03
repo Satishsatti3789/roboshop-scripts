@@ -10,7 +10,7 @@ sudo rm -rf /usr/share/nginx/html/* &>>${log_file}
 echo -e "${color} Download Application Content ${nocolor}"
 curl -o /tmp/${component}.zip https://roboshop-artifacts.s3.amazonaws.com/${component}.zip &>>${log_file}
 sudo cd /usr/share/nginx/html &>>${log_file}
-unzip /tmp/${component}.zip &>>${log_file}
+sudo unzip /tmp/${component}.zip &>>${log_file}
 
 echo -e "${color} copy ${component} configuration file ${nocolor}"
 sudo cp -r /home/centos/roboshop-scripts/${component}.service /etc/nginx/default.d/roboshop.conf &>>${log_file}
