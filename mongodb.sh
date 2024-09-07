@@ -2,7 +2,7 @@ source common.sh
 component=mongod
 
 echo -e "${color} copy ${component} repo file ${nocolor}"
-cp /home/centos/roboshop-scripts/mongodb.repo /etc/yum.repos.d/mongo.repo  &>>${log_file}
+cp /home/centos/roboshop-scripts/mongod.repo /etc/yum.repos.d/mongo.repo  &>>${log_file}
 stat_check $?
 
 echo -e "${color} install ${component} repo file ${nocolor}"
